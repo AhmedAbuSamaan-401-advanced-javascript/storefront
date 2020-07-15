@@ -7,16 +7,21 @@ import Header from "./header";
 import Footer from "./footer";
 import Products from "../Products";
 import Categories from "../Categories";
-import Cart from "../Cart";
+import Cart from "../Cart"
+import Login from "../Login";
+import Auth from '../Auth'
 
 export default function App() {
   return (
     <Provider store={store}>
       <Container className="App">
         <Header />
+        <Login />
         <Products />
         <Categories />
-        <Cart />
+        <Auth>
+          <Cart />
+        </Auth>
         <Footer />
       </Container>
     </Provider>
