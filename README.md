@@ -1,11 +1,11 @@
 # storefront
 
-## Lab-37
+## Lab-39
 
 ## Author : Ahmed Abu Samaan
 
 ## PR Link 
-[PR](https://github.com/AhmedAbuSamaan-401-advanced-javascript/storefront/pull/2)
+[PR](https://github.com/AhmedAbuSamaan-401-advanced-javascript/storefront/pull/3)
 [netlify](https://hopeful-cori-47bf3e.netlify.app/)
 
 ## Setup 

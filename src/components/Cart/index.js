@@ -1,18 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { reset, increment, decrement } from "../../actions";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const mapStateToProps = state => {
-    return { 
-      cart: state.cart,
-    };
+  return { 
+    cart: state.cartReducer,
   };
+};
 
-  const mapDispatchToProps = { reset, increment, decrement };
+const mapDispatchToProps = { reset, increment, decrement };
 
 const Cart = props => {
-  console.log('cart comp',props.cart.contents)
   return (
     <div>
         <div>Cart total items count: {props.cart.totalCount} </div> 
@@ -28,6 +27,11 @@ const Cart = props => {
               <tr key={key}>
                 <td>{key}</td>
                 <td>{props.cart.contents[key]}</td>
+                <td>
+                  <Button onClick={() => {
+                  props.decrement(key)}}
+                  >Remove From Cart</Button>
+                </td>
               </tr>
             ))}
           </tbody>

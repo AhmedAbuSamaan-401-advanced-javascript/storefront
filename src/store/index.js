@@ -1,17 +1,11 @@
-import { createStore, combineReducers } from "redux";
-import productInventory from "../reducers/productInventory";
-import categoryList from "../reducers/categoryList";
-import cartCount from "../reducers/cartCounter"
+import { configureStore } from '@reduxjs/toolkit'
+import productReducer from "../reducers/productReducer";
+import categoryReducer from "../reducers/categoryReducer";
+import cartReducer from "../reducers/cartReducer"
+import auth from '../reducers/auth'
 
-const rootReducer = combineReducers({ 
-  productInventory, 
-  cartCount, 
-  categoryList 
-});
+const store = configureStore({
+  reducer: { productReducer, categoryReducer, cartReducer, auth }
+})
 
-const store = () => {
-  return createStore(rootReducer);
-};
-
-
-export default store();
+export default store
