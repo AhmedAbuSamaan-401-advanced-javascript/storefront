@@ -1,24 +1,24 @@
 import React from "react";
+import { Button } from 'react-bootstrap';
 import { connect } from "react-redux";
-import { filter } from "../../reducers/categoryList";
-import { fruits, vegetables, nuts, reset } from "../../reducers/productInventory";
+import { selectCategory, reset } from '../../actions'
 
 const mapStateToProps = state => {
-  return { categoryList: state.categoryList };
+  return { categories: state.categories };
 };
 
-const mapDispatchToProps = { filter, fruits, vegetables, nuts, reset };
+const mapDispatchToProps = { selectCategory, reset };
 
 const Categories = props => {
+  console.log('props categories',props.categories)
   return (
-    <section className="Product">
-      {props.categoryList.categories.map(category => (
-        <div key={category.name}>
-          <button onClick={props.fruits}>{category.name}</button>
-        </div>
+    <section className="Categories">
+      <div>Filter By Category: {props.categories.selectedCategory}</div>
+      {props.categories.categories.map(category => (
+          <Button key={category.name} onClick={() => {
+            props.selectCategory(category.name) }}>{category.name}</Button>
       ))}
-      <div>Sort By Category</div>
-      <button onClick={props.reset}>Reset</button>
+      <Button onClick={props.reset}>Reset</Button>
     </section>
   );
 };
